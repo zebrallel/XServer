@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>斑马De测试中心</title>
+    {{#block "head"}}
+        {{#block "style"}}
+        {{/block}}
+        {{#each css}}
+            <link rel="stylesheet" href="{{this}}" type="text/css">
+        {{/each}}
+    {{/block}}
+</head>
+<body>
+{{#block "body"}}
+{{/block}}
+{{#each openjs}}
+    <script src="{{this}}"></script>
+{{/each}}
+{{#each js}}
+    <script src="{{this}}"></script>
+{{/each}}
+{{#block "script"}}
+{{/block}}
+</body>
+</html>
