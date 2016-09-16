@@ -1,5 +1,23 @@
 {{#extend "main"}}
     {{#content "body"}}
-        <h3>Hi, This is wechat, welcome!!!</h3>
+        <style>
+            .icon{
+                display: block;
+                width: 100px;
+                height: 100px;
+                margin: 20px auto;
+            }
+
+            .title,
+            .nickname{
+                margin: 15px 0;
+                text-align: center;
+            }
+        </style>
+
+        <img class="icon" src="{{iconUrl}}" alt="">
+        <p class="nickname">{{nickname}}</p>
+
+        <h3 class="title">Welcome to zebra's lab</h3>
     {{/content}}
 {{/extend}}

@@ -65,7 +65,7 @@ app.all('*', function (req, res) {
         case 'post':
             return res.json({status: -1, msg: '404'});
         case 'get':
-            return res.send('Page 404, sorry! ::>_<::');
+            return res.render('pages/404');
     }
 });
 
