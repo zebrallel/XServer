@@ -16,7 +16,7 @@ const layouts = require('handlebars-layouts');
 const _ = require('lodash');
 
 //Setting
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 9999);
 
 //Set view engine
 handlebars.registerHelper(layouts(handlebars));
@@ -50,9 +50,9 @@ app.use(express.static(path.resolve(__dirname, 'public'), {
 
 // 禁止浏览器缓存
 app.use(function (req, res, next) {
-    res.setHeader('Cache-Control', 'no-store');
-    res.setHeader('Expires', '0');
-    res.setHeader("Pragma", "no-cache");
+     res.setHeader('Cache-Control', 'no-store');
+     res.setHeader('Expires', '0');
+     res.setHeader("Pragma", "no-cache");
     next();
 });
 

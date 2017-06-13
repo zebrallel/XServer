@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF</title>
+    <style>
+        .cent{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="cent">
+    <button id="button">Click to send a cross site request</button>
+    <button id="button2">Click me to send another request</button>
+</div>
+<script>
+    //跨域的几种解决方案： http://harttle.com/2015/10/10/cross-origin.html?utm_source=tuicool&utm_medium=referral
+
+    document.domain = 'qunar.com';
+
+    window.onload = function () {
+        var ifr = document.createElement('iframe');
+        ifr.src = 'http://b.qunar.com:8888/form.html';
+        ifr.setAttribute('name', 'myFrame');
+        document.body.appendChild(ifr);
+
+        console.dir(ifr);
+        console.dir(myFrame);
+
+        ifr.onload = function () {
+            myFrame.window.sayName();
+        }
+    };
+
+    document.getElementById('button').onclick = function () {
+        var xhr = new XMLHttpRequest();
+
+        //server域名在 local.qunar.com下，这时会有跨域问题
+        xhr.open('POST', 'http://b.qunar.com:8888/cross');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        var formData = new FormData();
+        formData.append('password', 'doublelin');
+
+        var data = {
+            say : 'hi',
+            names : [
+                'callie',
+                'lixinyi',
+                'callie.li'
+            ]
+        };
+
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4){
+                if(xhr.status >= 200 && xhr.status < 300){
+                    console.log(xhr.responseText);
+                }
+            }
+        };
+
+        // solution 1: document.domain
+
+        //xhr.send($.param(data, true)); //say=hi&names=callie&names=lixinyi&names=callie.li
+        //xhr.send($.param(data, false)); //say=hi&names%5B%5D=callie&names%5B%5D=lixinyi&names%5B%5D=callie.li
+        xhr.send(formData);
+    };
+
+    document.getElementById('button2').onclick = function () {
+        $.get('http://local.qunar.com:8888/cross', {
+            say : 'Callie'
+        });
+    };
+</script>
+<script src="http://local.qunar.com:8888/assets/zepto.1.1.4.js"></script>
+</body>
+</html>

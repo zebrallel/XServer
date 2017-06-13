@@ -5,10 +5,10 @@
  */
 
 var router = require('express').Router();
-var cacheRouter = require('./cache');
-var wechatRouter = require('./wechat');
 
-router.use('/cache', cacheRouter);
-router.use('/wechat', wechatRouter);
+router.use('/cache', require('./cache'));
+router.use('/wechat', require('./wechat'));
+router.use('/log', require('./log'));
+router.use('/cross', require('./cross'));
 
 module.exports = router;

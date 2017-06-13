@@ -14,6 +14,13 @@
     </form>
     <br>
     <button id="btnXHR">XHR submit!</button>
-    <script src="http://localhost:3721/client/prd/scripts/index.js"></script>
+    <script>
+        document.domain = 'qunar.com';
+        function sayName(){
+            console.log('this is form.html');
+
+            return 'form.html';
+        }
+    </script>
 </body>
 </html>
