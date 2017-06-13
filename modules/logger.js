@@ -1,12 +1,10 @@
 /**
- * @fileOverView: log4j
+ * @fileOverView: logger
  * @author: xuejian.xu
- * @date: 17/2/16.
+ * @date: 2017/6/13.
  */
 
-var router = require('express').Router();
 var log4js = require('log4js');
-var schedule = require('@qnpm/q-schedule');
 
 log4js.configure({
     appenders: [
@@ -20,7 +18,7 @@ log4js.configure({
         {
             type: "dateFile",                 // 日志文件类型，可以使用日期作为文件名的占位符
             filename: "./logs/",     // 日志文件名，可以设置相对路径或绝对路径
-            pattern: "console.yyyy-MM-dd hh:mm.log",  // 占位符，紧跟在filename后面
+            pattern: "console.yyyy-MM-dd.log",  // 占位符，紧跟在filename后面
             absolute: false,                   // filename是否绝对路径
             alwaysIncludePattern: true,       // 文件名是否始终包含占位符
             layout: {
@@ -34,18 +32,21 @@ log4js.configure({
     }
 });
 
-var logger = log4js.getLogger();
+module.exports = function(req, res, next){
+    var logTpl = 'date ::: method ::: url ::: param';
+    var infos = {
+        date : new Date(),
+        method : req.method,
+        url : req.url,
+        param : req.method.toLowerCase() === 'get' ? JSON.stringify(req.query) : JSON.stringify(req.body)
+    };
+    var logger = log4js.getLogger();
 
-var j = schedule.scheduleJob('01 * * * * *', function () {
-    logger.info(new Date().toLocaleString());
-});
-
-router.get('*', function (req, res, next) {
-    logger.info("Time:", new Date());
-
-    res.render('pages/alert', {
-        msg : 'Now you are suppose to get a log from console'
+    Object.keys(infos).forEach(function(key){
+        logTpl = logTpl.replace(key, infos[key]);
     });
-});
 
-module.exports = router;
+    logger.info(logTpl);
+
+    next();
+};

@@ -14,6 +14,7 @@ const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
 const layouts = require('handlebars-layouts');
 const _ = require('lodash');
+const logger = require('./modules/logger');
 
 //Setting
 app.set('port', process.env.PORT || 9999);
@@ -40,13 +41,11 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 //Middlewares
+app.use(logger); // 记录日志
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, 'public'), {
-    setHeaders : function(res, path, stat){
-    }
-}));
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 // 禁止浏览器缓存
 app.use(function (req, res, next) {

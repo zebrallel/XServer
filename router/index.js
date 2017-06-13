@@ -8,7 +8,6 @@ var router = require('express').Router();
 
 router.use('/cache', require('./cache'));
 router.use('/wechat', require('./wechat'));
-router.use('/log', require('./log'));
 router.use('/cross', require('./cross'));
 
 module.exports = router;
