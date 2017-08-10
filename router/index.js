@@ -14,7 +14,7 @@ router.all('*', function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-    var pages = ['cache', 'wechat', 'cross', 'axios'];
+    var pages = ['cache', 'wechat', 'cross', 'api'];
 
     res.render('pages/index', {
         pages: pages,
@@ -25,6 +25,6 @@ router.get('/', function(req, res) {
 router.use('/cache', require('./cache'));
 router.use('/wechat', require('./wechat'));
 router.use('/cross', require('./cross'));
-router.use('/axios', require('./axios'));
+router.use('/api', require('./api'));
 
 module.exports = router;

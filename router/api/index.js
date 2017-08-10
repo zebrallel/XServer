@@ -5,7 +5,7 @@
 var router = require('express').Router();
 
 router.get('/', function(req, res) {
-    res.render('pages/axios');
+    res.render('pages/api');
 });
 
 router.get('/get/:id', function(req, res, next) {
