@@ -6,23 +6,19 @@
 
 var router = require('express').Router();
 
-router.all('*', function(req, res, next){
+router.all('*', function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Expose-Headers', 'content-type');
 
     next();
 });
 
-router.get('/', function(req, res){
-    var pages = [
-        'cache',
-        'wechat',
-        'cross',
-        'axios'
-    ];
+router.get('/', function(req, res) {
+    var pages = ['cache', 'wechat', 'cross', 'axios'];
 
     res.render('pages/index', {
-        pages : pages,
-        first : pages[0]
+        pages: pages,
+        first: pages[0]
     });
 });
 
