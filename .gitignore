@@ -1,8 +1,6 @@
-# prd staff
 node_modules/
 logs/
 
-# others
 npm-debug.log
 yarn-error.log
 .DS_Store
