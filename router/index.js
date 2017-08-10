@@ -16,7 +16,8 @@ router.get('/', function(req, res){
     var pages = [
         'cache',
         'wechat',
-        'cross'
+        'cross',
+        'axios'
     ];
 
     res.render('pages/index', {
@@ -28,26 +29,6 @@ router.get('/', function(req, res){
 router.use('/cache', require('./cache'));
 router.use('/wechat', require('./wechat'));
 router.use('/cross', require('./cross'));
-
-// simple routes
-router.get('/axios/get/:id', function(req, res, next){
-    var person = {};
-
-    if(req.params.id === '100'){
-        person = {
-            name : 'callie',
-            age : 26,
-            sex : 'female'
-        }
-    }else{
-        person = {
-            name : 'xxj',
-            age : 25,
-            sex : 'male'
-        }
-    }
-
-    res.json(person);
-});
+router.use('/axios', require('./axios'));
 
 module.exports = router;

@@ -1,0 +1,15 @@
+{{#extend "main"}}
+    {{#content "body"}}
+        <button id="btn">Click me to send a request</button>
+        <script src="/assets/zepto.1.1.4.js"></script>
+        <script>
+            var btn = document.getElementById('btn');
+
+            btn.addEventListener('click', function(){
+                $.post('axios/login', function(res){
+                    console.log(JSON.stringify(res));
+                })
+            })
+        </script>
+    {{/content}}
+{{/extend}}
