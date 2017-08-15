@@ -486,7 +486,8 @@ html, body {
 #Audit {
     padding-bottom: 40px; }
 #Audit .main {
-    padding: 20px; }
+    border-top: #e5e5e5 solid 1px;
+    border-left: #e5e5e5 solid 1px; }
 #Audit .main .row {
     display: flex;
     line-height: 30px;
@@ -494,11 +495,17 @@ html, body {
     color: #888;
     font-size: 13px; }
 #Audit .main .row .checkbox {
-    flex: 0 0 40px; }
+    flex: 0 0 40px;
+    border-right: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px; }
 #Audit .main .row .id {
-    flex-grow: 1; }
+    flex-grow: 1;
+    border-right: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px; }
 #Audit .main .row .nickname {
-    flex: 0 0 50px; }
+    flex: 0 0 120px;
+    border-right: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px; }
 #Audit .main .title {
     font-size: 14px; }
 #Audit .btns {

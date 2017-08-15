@@ -40,6 +40,7 @@ module.exports = function(req, res, next){
         url : req.url,
         param : req.method.toLowerCase() === 'get' ? JSON.stringify(req.query) : JSON.stringify(req.body)
     };
+
     var logger = log4js.getLogger();
 
     Object.keys(infos).forEach(function(key){

@@ -10,38 +10,19 @@
     <div id="App">
         <div class="g-page" id="Audit">
             <div class="m-header">
-                <div class="left"></div>
+                <div class="left">
+                    <span class="icon i-back"></span>
+                </div>
                 <div class="middle">用户审核</div>
                 <div class="right"></div>
             </div>
             <div class="main">
                 <div class="row title">
                     <div class="checkbox">
-                        <input type="checkbox" />
+                        <input id="checkAll" type="checkbox" />
                     </div>
                     <div class="id">学号</div>
                     <div class="nickname">昵称</div>
-                </div>
-                <div class="row">
-                    <div class="checkbox">
-                        <input type="checkbox" name="id" />
-                    </div>
-                    <div class="id">09311124</div>
-                    <div class="nickname">末世</div>
-                </div>
-                <div class="row">
-                    <div class="checkbox">
-                        <input type="checkbox" name="id" />
-                    </div>
-                    <div class="id">09311124</div>
-                    <div class="nickname">末世</div>
-                </div>
-                <div class="row">
-                    <div class="checkbox">
-                        <input type="checkbox" name="id" />
-                    </div>
-                    <div class="id">09311124</div>
-                    <div class="nickname">末世</div>
                 </div>
             </div>
             <div class="btns">
@@ -51,11 +32,83 @@
         </div>
     </div>
 </div>
+<script id="tpl-list" type="text/x-handlebars-template">
+    {{#data}}
+    <div class="row">
+        <div class="checkbox">
+            <input type="checkbox" name="id" data-id="{{user_id}}" />
+        </div>
+        <div class="id">{{user_id}}</div>
+        <div class="nickname">{{user_nickname}}</div>
+    </div>
+    {{/data}}
+</script>
 <script src="./asserts/jquery-3.2.1.js"></script>
+<script src="./asserts/handlebars-v4.0.10.js"></script>
 <script>
     $(function () {
+        initPage(); // init page
 
-    })
+        var $checkAll = $('#checkAll');
+
+        $checkAll.click(function(){
+            var allChecked = this.checked;
+
+            $('input[name=id]').each(function(idx, el){
+                el.checked = allChecked;
+            });
+        });
+
+        //通过按钮
+        $('.confirm').click(function(){
+            doSubmit(1);
+        });
+
+        //拒绝按钮
+        $('.reject').click(function(){
+            doSubmit(0);
+        });
+    });
+
+    /**
+     * 提交审核结果
+     * @param type 0: 不通过， 1：通过
+     */
+    function doSubmit(type){
+        var checkedArr = [];
+
+        $('input[name=id]').filter(function(idx, el){
+            return el.checked;
+        }).map(function(idx, el){
+            checkedArr.push($(el).data('id'));
+        });
+
+        if(checkedArr.length){
+            $.post('/api/account/auth',{
+                ids : checkedArr.join('-'),
+                type : type
+            }, function(res){
+                if(res.status == 0){
+                    location.reload();
+                }else{
+                    alert(res.message);
+                }
+            });
+        }
+    }
+
+    function initPage(){
+        var source = $('#tpl-list').html();
+        var template = Handlebars.compile(source);
+
+        $.post('/api/account/authList', function(res){
+            if(res.status == 0){
+                $('.main').append(template(res))
+            }else{
+                alert(res.message);
+            }
+        });
+    }
 </script>
 </body>
 </html>

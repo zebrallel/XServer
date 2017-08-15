@@ -47,7 +47,7 @@
                 username : usernameVal,
                 password : passwordVal
             }).then(function(res){
-                if(res.status === 0){
+                if(res.status == 0){
                     location.href = './Home.html';
                 }else{
                     alert(res.message);
