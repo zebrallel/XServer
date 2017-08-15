@@ -3,6 +3,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
     <title>Neutron</title>
+    <link rel="stylesheet" href="./asserts/swiper-3.4.2.min.css">
     <link href="./asserts/style.css" rel="stylesheet">
 </head>
 <body>
@@ -14,31 +15,22 @@
                 <div class="middle">首页</div>
                 <div class="right"></div>
             </div>
-            <div>
-                <div class="carousel carousel-slider" style="width: 100%;">
-                    <button type="button" class="control-arrow control-prev control-disabled"></button>
-                    <div class="slider-wrapper axis-horizontal">
-                        <ul class="slider animated"
-                            style="transform: translate3d(-100%, 0px, 0px); transition-duration: 350ms;">
-                            <li class="slide">
-                                <div><img src="http://odl96infd.bkt.clouddn.com/1.jpeg"></div>
-                            </li>
-                            <li class="slide selected">
-                                <div><img src="http://odl96infd.bkt.clouddn.com/2.jpeg"></div>
-                            </li>
-                            <li class="slide">
-                                <div><img src="http://odl96infd.bkt.clouddn.com/3.jpeg"></div>
-                            </li>
-                        </ul>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img style="height: 220px;" src="http://odl96infd.bkt.clouddn.com/1.jpeg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img style="height: 220px;" src="http://odl96infd.bkt.clouddn.com/2.jpeg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img style="height: 220px;" src="http://odl96infd.bkt.clouddn.com/3.jpeg" />
+                        </div>
                     </div>
-                    <button type="button" class="control-arrow control-next control-disabled"></button>
-                    <ul class="control-dots">
-                        <li class="dot" value="0"></li>
-                        <li class="dot selected" value="1"></li>
-                        <li class="dot" value="2"></li>
-                    </ul>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
+
                 </div>
-            </div>
             <div class="recent">
                 <div class="left"><span class="icon i-countdown"></span></div>
                 <div class="middle">尚无学习记录</div>
@@ -88,9 +80,16 @@
     </div>
 </div>
 <script src="asserts/jquery-3.2.1.js"></script>
+<script src="asserts/swiper-3.4.2.jquery.min.js"></script>
 <script>
     $(function(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
 
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        })
     })
 </script>
 </body>
