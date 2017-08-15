@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <title>XServer</title>
     <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
+    <style>
+        .in{
+            width: 200px;
+            background: #abc;
+        }
+
+        .out{
+            height: 100px;
+            width: 200px;
+            border:#333 solid 1px;
+            overflow: scroll;
+        }
+    </style>
 </head>
 <body>
     <p style="text-align: center;">Hello XServer!</p>
+    <ul class="out">
+        <li id="in" class="in">
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+            adf<br>
+        </li>
+    </ul>
+    <script>
+        window.onload = function(){
+            var dom = document.getElementById('in');
+
+            console.log(dom.offsetHeight);
+        }
+    </script>
 </body>
 </html>

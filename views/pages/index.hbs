@@ -3,22 +3,27 @@
         <style>
             .left{
                 position: fixed;
-                width: 200px;
+                width: 300px;
                 top: 0;
                 bottom: 0;
                 border-right: #ccc solid 1px;
             }
 
             .main{
-                margin-left: 200px;
+                margin-left: 300px;
             }
         </style>
 
         <div class="left">
             <ul>
-                {{#pages}}
+                <li>静态资源</li>
+                {{#publicLinks}}
                     <li><a data-url="{{.}}" href="javascript:void(0);">{{.}}</a></li>
-                {{/pages}}
+                {{/publicLinks}}
+                <li>动态页面</li>
+                {{#customLinks}}
+                    <li><a data-url="{{.}}" href="javascript:void(0);">{{.}}</a></li>
+                {{/customLinks}}
             </ul>
         </div>
         <div class="main">

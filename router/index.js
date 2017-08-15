@@ -5,6 +5,14 @@
  */
 
 var router = require('express').Router();
+var dirParser = require('../utils/dirParser');
+var publicfiles = [];
+
+dirParser('public/{*,*/*}.html', function(files){
+    publicfiles = files.map(function(file){
+        return file.slice(7);
+    });
+});
 
 router.all('*', function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -17,8 +25,8 @@ router.get('/', function(req, res) {
     var pages = ['cache', 'wechat', 'cross', 'api'];
 
     res.render('pages/index', {
-        pages: pages,
-        first: pages[0]
+        publicLinks : publicfiles,
+        customLinks : pages
     });
 });
 
