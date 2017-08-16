@@ -3,28 +3,31 @@
         <style>
             .left{
                 position: fixed;
-                width: 300px;
+                width: 250px;
                 top: 0;
                 bottom: 0;
                 border-right: #ccc solid 1px;
+                padding-left: 20px;
+                box-sizing: border-box;
             }
 
             .main{
-                margin-left: 300px;
+                margin-left: 250px;
             }
         </style>
 
         <div class="left">
-            <ul>
-                <li>静态资源</li>
+            <div>
+                <h3>静态资源</h3>
                 {{#publicLinks}}
-                    <li><a data-url="{{.}}" href="javascript:void(0);">{{.}}</a></li>
+                    <div><a data-url="{{.}}" href="javascript:void(0);">{{.}}</a></div>
                 {{/publicLinks}}
-                <li>动态页面</li>
+                <br>
+                <h3>动态页面</h3>
                 {{#customLinks}}
-                    <li><a data-url="{{.}}" href="javascript:void(0);">{{.}}</a></li>
+                    <div><a data-url="{{.}}" href="javascript:void(0);">{{.}}</a></div>
                 {{/customLinks}}
-            </ul>
+            </div>
         </div>
         <div class="main">
             <iframe id="iframe" src="{{first}}" frameborder="0" width="100%" height="980px"></iframe>
