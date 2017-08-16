@@ -546,3 +546,54 @@ html, body {
     flex-grow: 1;
     background: #FC6E51; }
 
+#Skeleton .nav {
+    line-height: 40px;
+    display: flex;
+    font-size: 13px; }
+#Skeleton .nav .tab {
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+    border-right: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px;
+    text-decoration: none;
+    color: #5f5f5f; }
+#Skeleton .nav .tab.active {
+    color: white;
+    background: #FFB647; }
+
+#Skeleton .container{
+    overflow: hidden;
+}
+
+#Skeleton .section .title {
+    line-height: 40px;
+    text-align: center;
+    border: #e5e5e5 solid 1px;
+    background: #f3f3f3;
+    color: #5f5f5f;
+    font-size: 13px; }
+
+#Skeleton .section .nobordertop{
+    border-top: 0;
+}
+
+#Skeleton .section .body {
+    height: 500px;
+    padding: 10px; }
+
+.backtop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border: #fafafa solid 1px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    background: rgba(175, 175, 175, 0.49);
+    color: #fff; }
+.backtop .i-back {
+    transform: rotate(90deg); }
+

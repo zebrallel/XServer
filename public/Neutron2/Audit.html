@@ -10,7 +10,7 @@
     <div id="App">
         <div class="g-page" id="Audit">
             <div class="m-header">
-                <div class="left">
+                <div id="goBack" class="left">
                     <span class="icon i-back"></span>
                 </div>
                 <div class="middle">用户审核</div>
@@ -48,6 +48,10 @@
 <script>
     $(function () {
         initPage(); // init page
+
+        $('#goBack').click(function(){
+            history.go(-1);
+        });
 
         var $checkAll = $('#checkAll');
 

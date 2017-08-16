@@ -17,23 +17,7 @@
             <div class="c-listview">
                 <div class="c-scrollview">
                     <div>
-                        <div class="row">
-                            <div class="left"><img src="http://odl96infd.bkt.clouddn.com/machine2machine.png"></div>
-                            <div class="middle">
-                                <div class="title">机器人操作</div>
-                                <div class="desc">机器人操作巴拉巴拉巴拉巴巴拉巴拉巴拉</div>
-                            </div>
-                            <div class="right"><span class="icon i-back"></span></div>
-                        </div>
-                        <div class="row">
-                            <div class="left"><img src="http://odl96infd.bkt.clouddn.com/machine2machine.png"></div>
-                            <div class="middle">
-                                <div class="title">机器人操作</div>
-                                <div class="desc">机器人操作巴拉巴拉巴拉巴巴拉巴拉巴拉</div>
-                            </div>
-                            <div class="right"><span class="icon i-back"></span></div>
-                        </div>
-                        <div class="row">
+                        <div class="row" data-url="./courses/demo.html">
                             <div class="left"><img src="http://odl96infd.bkt.clouddn.com/machine2machine.png"></div>
                             <div class="middle">
                                 <div class="title">机器人操作</div>
@@ -56,7 +40,11 @@
 <script src="./asserts/jquery-3.2.1.js"></script>
 <script>
     $(function(){
+        $('.row').click(function(eve){
+            var $tar = $(eve.target);
 
+            location.href = $tar.closest('.row').data('url');
+        });
     })
 </script>
 </body>
