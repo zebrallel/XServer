@@ -6,6 +6,21 @@
     <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
 </head>
 <body>
-    <p style="text-align: center;">Hello World!</p>
+<p style="text-align: center;">Hello World!</p>
+<button id="button">CLick me</button>
+<script src="./assets/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        $('#button').click(function () {
+            $.post('/api/login', {
+                username: 123,
+                password: 456
+            }, function (res) {
+                console.log(res);
+            })
+        });
+    });
+
+</script>
 </body>
 </html>
