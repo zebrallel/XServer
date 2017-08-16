@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <title>XServer</title>
     <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
+    <style>
+        .box{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .up{
+            flex: 0 0 40px;
+        }
+
+        .mid{
+            flex-grow: 1;
+        }
+
+        .btm{
+            flex: 0 0 20px;
+        }
+    </style>
 </head>
 <body>
     <p style="text-align: center;">Hello World!</p>
+    <div class="box">
+        <div class="up">123</div>
+        <div class="mid">321</div>
+        <div class="btm">999</div>
+    </div>
 </body>
 </html>
