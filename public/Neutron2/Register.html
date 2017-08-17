@@ -10,7 +10,7 @@
     <div id="App">
         <div class="g-page" id="Register">
             <div class="m-header">
-                <div class="left">
+                <div id="goBack" class="left">
                     <span class="icon i-back"></span>
                 </div>
                 <div class="middle">注册</div>
@@ -49,6 +49,10 @@
 <script src="./asserts/jquery-3.2.1.js"></script>
 <script>
     $(function () {
+        $('#goBack').click(function(){
+            history.go(-1);
+        });
+
         $('#btnSubmit').click(function(){
             var nickname = $('#nickname').val();
             var id = $('#id').val();

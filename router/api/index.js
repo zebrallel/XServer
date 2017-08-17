@@ -28,15 +28,20 @@ router.get('/get/:id', function(req, res, next) {
     res.json(person);
 });
 
+//登陆接口
 router.post('/login', function(req, res, next) {
-    var data = {
-        status: 0,
-        data: {
-            token: 'abc'
-        }
-    };
+    res.json({
+        status : 0,
+        data : null
+    });
+});
 
-    res.json(data);
+//注册接口
+router.post('/account/register', function(req, res){
+    res.json({
+        status : 0,
+        data : null
+    })
 });
 
 //审核列表接口
@@ -77,6 +82,45 @@ router.post('/account/auth', function(req, res){
         "message": "审核成功",
         "status": "0",
         "data": null
+    });
+});
+
+//首页接口
+router.post('/account/home', function(req, res){
+    res.json({
+        status : 0,
+        data : {
+            history : [
+                {
+                    name : '工业机器人编程',
+                    filename : 'demo.html'
+                },
+                {
+                    name : '工业机器人编程2',
+                    filename : 'demo.html'
+                }
+            ],
+            hotCourses : [
+                {
+                    name : '工业机器人编程',
+                    filename : 'demo.html'
+                },
+                {
+                    name : '工业机器人编程2',
+                    filename : 'demo.html'
+                }
+            ],
+            hotResources : [
+                {
+                    name : '工业机器人编程',
+                    filename : 'demo.html'
+                },
+                {
+                    name : '工业机器人编程2',
+                    filename : 'demo.html'
+                }
+            ]
+        }
     });
 });
 
