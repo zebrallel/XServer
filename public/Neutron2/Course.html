@@ -17,7 +17,7 @@
             <div class="c-listview">
                 <div class="c-scrollview">
                     <div>
-                        <div class="row" data-url="./courses/demo.html">
+                        <div class="row" data-filename="demo.html">
                             <div class="left"><img src="http://odl96infd.bkt.clouddn.com/machine2machine.png"></div>
                             <div class="middle">
                                 <div class="title">机器人操作</div>
@@ -43,7 +43,7 @@
         $('.row').click(function(eve){
             var $tar = $(eve.target);
 
-            location.href = $tar.closest('.row').data('url');
+            location.href = './courses/' + $tar.closest('.row').data('filename');
         });
     })
 </script>
