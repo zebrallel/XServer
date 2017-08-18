@@ -93,31 +93,31 @@ router.post('/account/home', function(req, res){
             history : [
                 {
                     name : '工业机器人编程',
-                    filename : 'demo.html'
+                    location : 'demo.html'
                 },
                 {
                     name : '工业机器人编程2',
-                    filename : 'demo.html'
+                    location : 'demo.html'
                 }
             ],
             hotCourses : [
                 {
                     name : '工业机器人编程',
-                    filename : 'demo.html'
+                    location : 'demo.html'
                 },
                 {
                     name : '工业机器人编程2',
-                    filename : 'demo.html'
+                    location : 'demo.html'
                 }
             ],
             hotResources : [
                 {
                     name : '工业机器人编程',
-                    filename : 'demo.html'
+                    location : 'demo.html'
                 },
                 {
                     name : '工业机器人编程2',
-                    filename : 'demo.html'
+                    location : 'demo.html'
                 }
             ]
         }
