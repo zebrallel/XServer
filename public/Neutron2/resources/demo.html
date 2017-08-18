@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
+    <title>Neutron</title>
+    <link href="../asserts/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="root">
+    <div data-reactroot="" id="App">
+        <div id="ResourceTemp">
+            <div class="m-header">
+                <div id="goBack" class="left"><span class="icon i-back"></span></div>
+                <div class="middle">资源</div>
+                <div class="right"></div>
+            </div>
+            <div class="main">这是资源文档内容巴拉巴拉巴拉</div>
+        </div>
+    </div>
+</div>
+<script src="../asserts/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        $('#goBack').click(function(){
+            history.go(-1);
+        });
+    })
+</script>
+</body>

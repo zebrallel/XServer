@@ -26,7 +26,7 @@
                 <div class="c-listview">
                     <div class="c-scrollview">
                         <div>
-                            <div class="row">
+                            <div class="row" data-filename="demo.html">
                                 <div class="left">
                                     <img src="http://odl96infd.bkt.clouddn.com/machine2machine.png" />
                                 </div>
@@ -62,7 +62,11 @@
 <script src="./asserts/jquery-3.2.1.js"></script>
 <script>
     $(function () {
+        $('.row').click(function(eve){
+            var $tar = $(eve.target);
 
+            location.href = './resources/' + $tar.closest('.row').data('filename');
+        });
     })
 </script>
 </body>

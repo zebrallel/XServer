@@ -605,4 +605,8 @@ html, body {
     color: #fff; }
 .backtop .i-back {
     transform: rotate(90deg); }
+#ResourceTemp .main {
+    padding: 15px;
+    font-size: 13px;
+    color: #888; }
 
