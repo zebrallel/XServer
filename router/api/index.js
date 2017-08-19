@@ -30,6 +30,10 @@ router.get('/get/:id', function(req, res, next) {
 
 //登陆接口
 router.post('/login', function(req, res, next) {
+    res.cookie('username', '杨行');
+    res.cookie('id', '1111111');
+    res.cookie('type', 1);
+
     res.json({
         status : 0,
         data : null
