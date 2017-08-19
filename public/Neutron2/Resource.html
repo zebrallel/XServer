@@ -26,7 +26,13 @@
                 <div class="c-listview">
                     <div class="c-scrollview">
                         <div>
-                            <div class="row" data-filename="demo.html">
+                            <div class="row"
+                                 data-location="demo.html"
+                                 data-description="机机器人操作巴拉巴拉巴拉巴巴拉巴拉巴拉机器人"
+                                 data-image="http://odl96infd.bkt.clouddn.com/machine2machine.png"
+                                 data-type="2"
+                                 data-name="机器人操作"
+                            >
                                 <div class="left">
                                     <img src="http://odl96infd.bkt.clouddn.com/machine2machine.png" />
                                 </div>
@@ -65,20 +71,32 @@
         $('.row').click(function(eve){
             var $tar = $(eve.target);
 
-            location.href = './resources/' + $tar.closest('.row').data('filename');
+            location.href = './resources/' + $tar.closest('.row').data('location');
         });
 
         $('.favorite').click(function(eve){
             eve.stopPropagation();
 
             var $tar = eve.target.tagName === "SPAN" ? $(eve.target) : $(eve.target).children('.i-heart');
+            var params = $tar.closest('.row').data();
 
             if($tar.hasClass('red')){
                 $tar.removeClass('red');
+
+                params.saveOrDelete = 0;
             }else{
                 $tar.addClass('red');
+
+                params.saveOrDelete = 1;
             }
 
+            $.post('/api/account/favorite', params, function(res){
+                if(res.status == 0){
+                    alert('操作成功!');
+                }else{
+                    alert(res.message);
+                }
+            });
         });
     })
 </script>

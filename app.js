@@ -64,7 +64,7 @@ app.use('/', routers);
 app.all('*', function (req, res) {
     switch (req.method.toLowerCase()) {
         case 'post':
-            return res.json({status: -1, msg: '404'});
+            return res.json({status: -1, msg: '404', message : '系统繁忙，请稍后再试!'});
         case 'get':
             return res.render('pages/404');
     }

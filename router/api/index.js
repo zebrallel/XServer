@@ -124,19 +124,39 @@ router.post('/account/home', function(req, res){
     });
 });
 
-router.post('/queryFavorites', function(req, res){
+router.post('/account/getFavoriteList', function(req, res){
     res.json({
         status : 0,
         data : [
             {
-                name : '机器人操作13123',
-                location : 'demo.html',
-                desc : '机器人操作巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+                "user_id": 1,
+                "name": "home",
+                "location": "demo.html",
+                "id": 1,
+                "time": "2017-08-19 12:03:35",
+                "image" : 'http://odl96infd.bkt.clouddn.com/machine2machine.png',
+                description : '机器人操作巴拉巴拉巴拉巴拉',
+                "type": 1
             },
             {
-                name : '机器人操作13123',
-                location : 'demo.html',
-                desc : '机器人操作巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+                "user_id": 1,
+                "name": "login",
+                "location": "demo.html",
+                "id": 2,
+                "time": "2017-08-19 12:07:54",
+                "image" : 'http://odl96infd.bkt.clouddn.com/machine2machine.png',
+                description : '机器人操作巴拉巴拉巴拉巴拉',
+                "type": 1
+            },
+            {
+                "user_id": 1,
+                "name": "login1",
+                "location": "demo.html",
+                "id": 3,
+                "image" : 'http://odl96infd.bkt.clouddn.com/machine2machine.png',
+                description : '机器人操作巴拉巴拉巴拉巴拉',
+                "time": "2017-08-19 12:08:39",
+                "type": 1
             }
         ]
     })

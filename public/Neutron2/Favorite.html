@@ -24,14 +24,19 @@
 </div>
 <script id="tpl-list" type="text/x-handlebars-template">
     {{#.}}
-    <div class="row" data-filename="{{location}}">
+    <div class="row"
+         data-location="{{location}}"
+         data-image="{{image}}"
+         data-description="{{description}}"
+         data-type="{{type}}"
+    >
         <div class="left">
-            <img src="http://odl96infd.bkt.clouddn.com/machine2machine.png"/>
+            <img src="{{image}}"/>
         </div>
         <div class="middle">
             <div class="content">
                 <div class="title">{{name}}</div>
-                <div class="desc">{{desc}}</div>
+                <div class="desc">{{description}}</div>
                 <div class="favorite">
                     <span class="icon i-heart red"></span>
                 </div>
@@ -52,7 +57,7 @@
         });
 
 
-        $.post('/api/queryFavorites', function(res){
+        $.post('/api/account/getFavoriteList', function(res){
             if(res.status == 0){
                 var data = res.data;
                 var source = $('#tpl-list').html();
@@ -63,19 +68,26 @@
                 $('.row').click(function (eve) {
                     var $tar = $(eve.target);
 
-                    location.href = './resources/' + $tar.closest('.row').data('filename');
+                    location.href = './resources/' + $tar.closest('.row').data('location');
                 });
 
                 $('.favorite').click(function (eve) {
                     eve.stopPropagation();
 
                     var $tar = eve.target.tagName === "SPAN" ? $(eve.target) : $(eve.target).children('.i-heart');
+                    var params = $tar.closest('.row').data();
+                    params.saveOrDelete = 1;
 
-                    if ($tar.hasClass('red')) {
-                        $tar.removeClass('red');
-                    } else {
-                        $tar.addClass('red');
-                    }
+                    $tar.removeClass('red');
+                    $.post('/api/account/favorite', params).done(function(res){
+                        if(res.status == 0){
+                            location.reload();
+                        }else{
+                            alert(res.message);
+                        }
+                    }).fail(function(){
+                        alert('网络异常，请检查连接！');
+                    });
                 });
             }else{
                 alert(res.message);
