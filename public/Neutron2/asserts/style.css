@@ -298,8 +298,9 @@ html, body {
 #Resource .list .row .middle .favorite .i-heart {
     color: #ccc;
     font-size: 14px; }
-#Resource .list .row .middle .favorite .red {
-    color: #6bbd7b; }
+#Resource .list .row .middle .favorite .red{
+    color: #ef4c4c;
+}
 #Resource .list .row .right {
     flex: 0 0 30px;
     line-height: 80px;

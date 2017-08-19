@@ -4,6 +4,7 @@
     <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
     <title>Neutron</title>
     <link href="../asserts/style.css" rel="stylesheet">
+    <link href="http://vjs.zencdn.net/6.2.5/video-js.css" rel="stylesheet">
 </head>
 <body>
 <div id="root">
@@ -14,15 +15,25 @@
                 <div class="middle">资源</div>
                 <div class="right"></div>
             </div>
-            <div class="main">这是资源文档内容巴拉巴拉巴拉</div>
+            <div class="main">xxx机器人操作教学</div>
+            <video id="player" class="video-js" controls preload="auto">
+                <source src="/files/pingguo.mp4" type="video/mp4">
+            </video>
         </div>
     </div>
 </div>
 <script src="../asserts/jquery-3.2.1.js"></script>
+<script src="http://vjs.zencdn.net/6.2.5/video.js"></script>
 <script>
     $(function () {
         $('#goBack').click(function(){
             history.go(-1);
+        });
+
+        var player = videojs('player');
+        player.ready(function(){
+            player.width(screen.width);
+            player.play();
         });
     })
 </script>
