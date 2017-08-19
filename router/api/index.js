@@ -124,4 +124,22 @@ router.post('/account/home', function(req, res){
     });
 });
 
+router.post('/queryFavorites', function(req, res){
+    res.json({
+        status : 0,
+        data : [
+            {
+                name : '机器人操作13123',
+                location : 'demo.html',
+                desc : '机器人操作巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+            },
+            {
+                name : '机器人操作13123',
+                location : 'demo.html',
+                desc : '机器人操作巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+            }
+        ]
+    })
+});
+
 module.exports = router;
