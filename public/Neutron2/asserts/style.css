@@ -589,8 +589,37 @@ html, body {
 }
 
 #Skeleton .section .body {
-    height: 500px;
-    padding: 10px; }
+    padding: 10px;
+    line-height: 1.5;
+    color: #888;
+    font-size: 13px;
+}
+
+#Skeleton .section .body .h1{
+    margin: 10px 0;
+}
+
+
+#Skeleton .section .body ul{
+    list-style: circle;
+    padding-left: 20px;
+}
+
+#Skeleton .section .body img{
+    width: 100%;
+}
+
+#Skeleton .section .body table{
+    width: 100%;
+    border-top: #ccc solid 1px;
+    border-left: #ccc solid 1px;
+    text-align: center;
+}
+
+#Skeleton .section .body table td{
+    border-right: #ccc solid 1px;
+    border-bottom: #ccc solid 1px;
+}
 
 .backtop {
     position: fixed;
