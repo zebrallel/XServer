@@ -12,7 +12,7 @@
         <div id="Skeleton" class="g-page">
             <div class="m-header">
                 <div id="goBack" class="left"><span class="icon i-back"></span></div>
-                <div class="middle">课程</div>
+                <div class="middle">数控机床主轴控制功能</div>
                 <div class="right"></div>
             </div>
             <div class="nav">
@@ -46,19 +46,19 @@
                         <div class="body">
                             <p>3. 串行数字主轴电动机参数初始化操作</p>
                             <p class="h1">3.1 打开实验仿真系统软件</p>
-                            <img src="../images/image002.jpg" alt="">
+                            <img src="../images/course1/image002.jpg" alt="">
                             <p>按机床启动按钮启动仿真操作平台。</p>
                             <br>
                             <p>(1) 主轴速度串行数字控制系统参数的设定 FANUC-31iB/0iD系统参数设定8133#5设定为“0”使用串行输出（0-使用，1-不使用）3716#0设定为“1”主轴速度控制（0-为模拟量，1-为串行数字） 3701#4#1:串行主轴的数目（00-1个主轴，10-两个主轴） 3717设定为-1”连接的驱动器(0-无放大器，1、2、3-分别为第1-3主轴放大器） 注意：封主轴驱动（主轴报警的屏蔽）方法：参数3717设定为 </p>
-                            <img src="../images/image004.jpg" alt="">
+                            <img src="../images/course1/image004.jpg" alt="">
                             <br>
                             <p>(2) 正确输入主轴电动机ID代码到系统参数（系统参数写保护PWE=1 > FANUC-31 i/Oi系统：系统主轴电动机ID代码参数为4133;</p>
-                            <img src="../images/image006.jpg" alt="">
+                            <img src="../images/course1/image006.jpg" alt="">
                             <p>(3) 设定主轴电动机标准初始化功能系统参数FANUC-31iB/0iD系统:参数4019#7设定为“1”，初始化结束该位自动为“0”;</p>
-                            <img src="../images/image008.jpg" alt="">
+                            <img src="../images/course1/image008.jpg" alt="">
                             <br>
                             <p class="h1">3.2 数控机床主轴位置和速度检测装置选择及参数设定</p>
-                            <img src="../images/image010.jpg" alt="">
+                            <img src="../images/course1/image010.jpg" alt="">
                             <p>主轴外接主轴独立编码器实现主轴准停控制的系统参数设定</p>
                             <table>
                                 <tr>
@@ -104,7 +104,7 @@
                                     <td>电动机与主轴各挡的齿轮比</td>
                                 </tr>
                             </table>
-                            <img src="../images/image012.jpg" alt="">
+                            <img src="../images/course1/image012.jpg" alt="">
                             <br>
                             <p class="h1">主轴电动机内装传感器实现主轴准停控制的系统参数设定</p>
                             <table>
@@ -145,7 +145,7 @@
                                     <td>电动机与主轴的齿轮比为1：1</td>
                                 </tr>
                             </table>
-                            <img src="../images/image014.jpg" alt="">
+                            <img src="../images/course1/image014.jpg" alt="">
                             <br>
                             <table>
                                 <tr>
@@ -204,20 +204,20 @@
                             <p>> PMC控制信号 PMC到CNC控制信号：</p>
                             <p>G70. 5:主轴正传控制信号 G70. 4:主轴反转控制信号 G30:主轴倍率信号 G33. 7:主轴速度PMC控制信号 G29. 6:主轴使能信号 G29. 4:主轴速度到达信号 G71. 1:主轴急停信号、CNC到PMC控制信号：F45. 0:主轴报警状态信号 F45. 1:主轴零速度状态信号 F45. 3:主轴速度到达信号 </p>
                             <p class="h1">主轴手动和自动正反转控制指令编制</p>
-                            <img src="../images/image016.jpg" alt="">
-                            <img src="../images/image018.jpg" alt="">
+                            <img src="../images/course1/image016.jpg" alt="">
+                            <img src="../images/course1/image018.jpg" alt="">
                             <br>
                             <p class="h1">主轴自动控制速度倍率PMC编制</p>
-                            <img src="../images/image020.jpg" alt="">
+                            <img src="../images/course1/image020.jpg" alt="">
                             <br>
                             <p class="h1">主轴手动速度控制PMC编制</p>
-                            <img src="../images/image022.jpg" alt="">
+                            <img src="../images/course1/image022.jpg" alt="">
                             <p class="h1">主轴速度控制使能及速度到达信号检测PMC编制</p>
-                            <img src="../images/image024.jpg" alt="">
+                            <img src="../images/course1/image024.jpg" alt="">
                             <br>
                             <p class="h1">主轴运行的必要参数</p>
                             <p>3741:主轴第一档最高速度；3736：主轴速度上限值1410：全轴空运行速度1430：各轴最大真切切削速度。</p>
-                            <img src="../images/image026.jpg" alt="">
+                            <img src="../images/course1/image026.jpg" alt="">
                             <p class="h1">系统部报警、主轴模块就绪时，主轴不转的故障诊断</p>
                             <p>1) 主轴旋转使能信号未就绪</p>
                             <p>通过系统梯形图或诊断号进行诊断：系统为G29.6，（正常为“1”）。如果为“0”，通过梯形图信号跟踪法具体判别，如主轴刀具夹紧信号未接通。</p>
@@ -240,9 +240,9 @@
                             <br>
                             <p class="h1">（2）主轴定向准停PMC编制</p>
                             <p>1）系统主轴定向指令的编制</p>
-                            <img src="../images/image028.jpg" alt="">
+                            <img src="../images/course1/image028.jpg" alt="">
                             <p>2）系统主轴定向结束指令的编制</p>
-                            <img src="../images/image030.jpg" alt="">
+                            <img src="../images/course1/image030.jpg" alt="">
                             <br>
                             <p>3）系统主轴定向控制功能、完成及报警的编制</p>
                             <p>G70.6: 系统主轴定向准停控制功能</p>
@@ -250,8 +250,8 @@
                             <p>Y60.6：机床面板定向准停指示灯</p>
                             <p>A1.3：主轴报警信息继电器</p>
                             <br>
-                            <img src="../images/image032.jpg" alt="">
-                            <img src="../images/image034.jpg" alt="">
+                            <img src="../images/course1/image032.jpg" alt="">
+                            <img src="../images/course1/image034.jpg" alt="">
                             <br>
                             <p>轴定向准停调试</p>
                             <p>位置的调整</p>
