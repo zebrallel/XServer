@@ -111,8 +111,11 @@
 
                 $('.content .li').click(function(eve){
                     var $tar = $(eve.target);
+                    var filename = $tar.closest('.li').data('filename');
 
-                    location.href = './courses/' + $tar.closest('.li').data('filename');
+                    if(filename){
+                        location.href = './courses/' + filename;
+                    }
                 });
             }else{
                 alert(res.message);
