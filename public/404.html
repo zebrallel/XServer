@@ -42,14 +42,36 @@
             font-size: 18px;
             text-align: center;
             color: #999;
-            margin-left: 10px;
+            padding: 0 20px;
         }
     </style>
 </head>
 <body>
 <div class="content">
-    <img src="./imgs/med.png">
-    <div class="tip">服务器开小差了</div>
+    <img src="http://static.jk.cn/T1WPCyBgYv1RCvBVdK">
+    <div id="tip" class="tip">服务器开小差了</div>
 </div>
+<script>
+    window.onload = function(){
+        var message = getQueryStringByName('message');
+
+        if(message){
+          document.getElementById('tip').innerText = message;
+        }
+    }
+
+    function getQueryStringByName(name){
+      var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+
+      if(result == null || result.length < 1){
+
+        return "";
+
+      }
+
+      return result[1];
+
+    }
+</script>
 </body>
 </html>
