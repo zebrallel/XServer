@@ -149,7 +149,7 @@ router.post('/account/getFavoriteList', function(req, res){
             {
                 "user_id": 1,
                 "name": "login",
-                "location": "demo.html",
+                "location": "demo2.html",
                 "id": 2,
                 "time": "2017-08-19 12:07:54",
                 "image" : 'http://odl96infd.bkt.clouddn.com/machine2machine.png',
@@ -159,7 +159,7 @@ router.post('/account/getFavoriteList', function(req, res){
             {
                 "user_id": 1,
                 "name": "login1",
-                "location": "demo.html",
+                "location": "demo3.html",
                 "id": 3,
                 "image" : 'http://odl96infd.bkt.clouddn.com/machine2machine.png',
                 description : '机器人操作巴拉巴拉巴拉巴拉',
@@ -167,6 +167,13 @@ router.post('/account/getFavoriteList', function(req, res){
                 "type": 1
             }
         ]
+    })
+});
+
+router.post('/account/favorite', function(req, res){
+    res.json({
+        status : 0,
+        message : ''
     })
 });
 
