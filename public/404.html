@@ -56,7 +56,7 @@
         var message = getQueryStringByName('message');
 
         if(message){
-          document.getElementById('tip').innerText = message;
+          document.getElementById('tip').innerText = decodeURIComponent(message);
         }
     }
 
