@@ -107,28 +107,34 @@
     <input type="text" maxlength="6">
   </div>
   <div class="label-vcode">
-    <button>发送验证码</button>
+    <button id="btnSend">发送验证码</button>
   </div>
 </div>
 <button class="btn-register">注册</button>
 <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script>
   $(function(){
-
+    //btnSend click
+    $('#btnSend').click(function(){
+        
+    })
   })
 
-  class VCode {
-    constructor(options){
-      this.options = Object.assign({
+  function sendVCode(){
+
+  }
+
+  function vcode(options){
+    this.options = Object.assign({
         timeLen: 60, //倒计时时长 单位：s
         delay: 1000, //倒计时间隔 单位：ms
         onTick: ()=>{},
         onEnd: ()=>{}
       }, options);
-    }
+  }
 
-    start(){
-      let {timeLen, onTick, onEnd, delay} = this.options;
+  vcode.prototype.start = function(){
+    var {timeLen, onTick, onEnd, delay} = this.options;
 
       onTick(timeLen);
 
@@ -143,7 +149,6 @@
           onTick(timeLen);
         }
       }, delay);
-    }
   }
 </script>
 </body>
