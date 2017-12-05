@@ -93,13 +93,13 @@
 <div class="item">
   <div class="label">密码</div>
   <div class="input">
-    <input id="password" type="text" maxlength="16">
+    <input id="password" type="password" maxlength="16">
   </div>
 </div>
 <div class="item">
   <div class="label">确认密码</div>
   <div class="input">
-    <input id="passwordConfirm" type="text" maxlength="16">
+    <input id="passwordConfirm" type="password" maxlength="16">
   </div>
 </div>
 <div class="item">
@@ -111,11 +111,12 @@
     <button class="time" style="display: none;"></button>
   </div>
 </div>
-<button class="btn-register">注册</button>
+<button id="btnRegister" class="btn-register">注册</button>
 <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script>
   $(function(){
     $('#btnSend').on('click', sendVCode);
+    $('#btnRegister').on('click', doRegister);
   });
 
 
@@ -141,7 +142,18 @@
       return alert('两次密码输入不一致，请重新输入！');
     }
 
+    $.post('/serverInterface/login/registrationCustomer', {
+      password: passwordVal,
+      parentId: getQueryString('agent'),
+      customerPhone: phoneVal,
+      code: vcodeVal
+    }, function(res){
+      if(res.code != 1){
+        alert(res.msg);
+      }else{
 
+      }
+    })
   }
 
   /**
@@ -172,7 +184,9 @@
     vc.start();
 
     $.post('/serverInterface/login/sendCode',{mobile: phoneVal, type: 1}, function(res){
-      console.log(res);
+      if(res.code != 1){
+        alert(res.msg);
+      }
     })
   }
 
@@ -205,6 +219,13 @@
           onTick(timeLen);
         }
       }, delay);
+  };
+
+  function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
   }
 </script>
 </body>
