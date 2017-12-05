@@ -17,7 +17,7 @@ const _ = require('lodash');
 const logger = require('./modules/logger');
 
 //Setting
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 9999);
 
 //Set view engine
 handlebars.registerHelper(layouts(handlebars));
