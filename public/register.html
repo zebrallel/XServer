@@ -13,139 +13,171 @@
     <meta name="x5-page-mode" content="app">
     <title>注册新用户</title>
     <style>
-      .img{
-        display: block;
-        margin: 50px auto;
-      }
+        .img {
+            display: block;
+            margin: 50px auto;
+        }
 
-      .item{
-        display: -webkit-box;
-        display: flex;
-        margin: 10px 50px;
-        border: #e5e5e5 solid 1px;
-        color: #555;
-          overflow: hidden;
-      }
+        .item {
+            display: -webkit-box;
+            display: flex;
+            margin: 10px 50px;
+            border: #e5e5e5 solid 1px;
+            color: #555;
+            overflow: hidden;
+        }
 
-      .item .label{
-        width: 80px;
-        font-size: 13px;
-          line-height: 32px;
-        text-align: center;
-        border-right: #e5e5e5 solid 1px;
-      }
+        .item .label {
+            width: 80px;
+            font-size: 13px;
+            line-height: 32px;
+            text-align: center;
+            border-right: #e5e5e5 solid 1px;
+        }
 
-      .item .input{
-        -webkit-box-flex: 1;
-        flex: 1;
-        padding: 0 10px;
-      }
+        .item .input {
+            -webkit-box-flex: 1;
+            flex: 1;
+            padding: 0 10px;
+        }
 
-      .item .input input{
-        width: 90%;
-        border: 0;
-          font-size: 14px;
-          height: 30px;
-      }
+        .item .input input {
+            width: 90%;
+            border: 0;
+            font-size: 14px;
+            height: 30px;
+        }
 
-      .item .input-vcode{
-        -webkit-box-flex: 1;
-        flex: 1;
-        box-sizing: border-box;
-          padding:0 10px;
-      }
+        .item .input-vcode {
+            -webkit-box-flex: 1;
+            flex: 1;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
 
-      .item .input-vcode input{
-        width: 100%;
-          height: 30px;
-        border: 0;
-          font-size: 14px;
-      }
+        .item .input-vcode input {
+            width: 100%;
+            height: 30px;
+            border: 0;
+            font-size: 14px;
+        }
 
-      .item .label-vcode{
-        width: 100px;
-      }
+        .item .label-vcode {
+            width: 100px;
+        }
 
-      .item .label-vcode button{
-        background: #d42b2e;
-        color: #fff;
-        border: 0;
-        width: 100%;
-        font-size: 13px;
-        border-radius: 0;
-          height: 100%;
-      }
+        .item .label-vcode button {
+            background: #d42b2e;
+            color: #fff;
+            border: 0;
+            width: 100%;
+            font-size: 13px;
+            border-radius: 0;
+            height: 100%;
+        }
 
-      .btn-register{
-        display: block;
-        margin: 50px auto;
-        width: 100px;
-        background: #d42b2e;
-        color: #fff;
-        border: 0;
-        line-height: 32px;
-        font-size: 13px;
-      }
+        .btn-register {
+            display: block;
+            margin: 50px auto;
+            width: 100px;
+            background: #d42b2e;
+            color: #fff;
+            border: 0;
+            line-height: 32px;
+            font-size: 13px;
+        }
+
+        .agree {
+            position: relative;
+            font-size: 12px;
+            color: #888;
+            margin: 15px 50px;
+            padding-left: 24px;
+        }
+
+        .agree input {
+            position: absolute;
+            top: -2px;
+            left: -3px;
+            width: 15px;
+            height: 15px;
+        }
+
+
     </style>
 </head>
 <body>
-<img src="http://odl96infd.bkt.clouddn.com/dyb-logo.jpg" class="img" />
+<img src="http://odl96infd.bkt.clouddn.com/dyb-logo.jpg" class="img"/>
 <div class="item">
-  <div class="label">手机号</div>
-  <div class="input">
-    <input id="phone" type="text" maxlength="11">
-  </div>
+    <div class="label">手机号</div>
+    <div class="input">
+        <input id="phone" type="text" maxlength="11" placeholder="请输入手机号">
+    </div>
 </div>
 <div class="item">
-  <div class="label">密码</div>
-  <div class="input">
-    <input id="password" type="password" maxlength="16">
-  </div>
+    <div class="label">密码</div>
+    <div class="input">
+        <input id="password" type="password" maxlength="16" placeholder="请输入密码">
+    </div>
 </div>
 <div class="item">
-  <div class="label">确认密码</div>
-  <div class="input">
-    <input id="passwordConfirm" type="password" maxlength="16">
-  </div>
+    <div class="label">确认密码</div>
+    <div class="input">
+        <input id="passwordConfirm" type="password" maxlength="16" placeholder="请再次输入密码">
+    </div>
 </div>
 <div class="item">
-  <div class="input-vcode">
-    <input id="vcode" type="text" maxlength="6">
-  </div>
-  <div class="label-vcode">
-    <button id="btnSend">发送验证码</button>
-    <button class="time" style="display: none;"></button>
-  </div>
+    <div class="input-vcode">
+        <input id="vcode" type="text" maxlength="6" placeholder="请输入验证码">
+    </div>
+    <div class="label-vcode">
+        <button id="btnSend">发送验证码</button>
+        <button class="time" style="display: none;"></button>
+    </div>
+</div>
+<div class="agree">
+    <input id="agree" type="checkbox" checked>
+    我已阅读并接受<a href="/statics/RegAgree.html">《系统服务协议》</a>
 </div>
 <button id="btnRegister" class="btn-register">注册</button>
 <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script>
-  $(function(){
+    var agreeChecked = true;
+
+  $(function () {
     $('#btnSend').on('click', sendVCode);
     $('#btnRegister').on('click', doRegister);
+    $('#agree').on('change', agreeChange);
   });
 
+  function agreeChange(){
+    agreeChecked = this.checked;
+  }
 
-  function doRegister(){
+  function doRegister() {
     var phoneVal = $('#phone').val();
     var passwordVal = $('#password').val();
     var passwordConfirmVal = $('#passwordConfirm').val();
     var vcodeVal = $('#vcode').val();
 
-    if(!/\d{11}/.test(parseInt(phoneVal))){
+    if (!/\d{11}/.test(parseInt(phoneVal))) {
       return alert('手机号格式有误，请重新输入!');
     }
 
-    if(!passwordVal || !passwordConfirmVal){
+    if (!passwordVal || !passwordConfirmVal) {
       return alert('密码不得为空!');
     }
 
-    if(!vcodeVal){
+    if (!vcodeVal) {
       return alert('验证码不得为空！');
     }
 
-    if(passwordVal !== passwordConfirmVal){
+    if (passwordVal !== passwordConfirmVal) {
       return alert('两次密码输入不一致，请重新输入！');
+    }
+
+    if (!agreeChecked){
+      return alert('请先阅读并同意系统服务协议!');
     }
 
     $.post('/serverInterface/login/registrationCustomer', {
@@ -153,10 +185,10 @@
       parentId: getQueryString('agent'),
       customerPhone: phoneVal,
       code: vcodeVal
-    }, function(res){
-      if(res.code != 1){
+    }, function (res) {
+      if (res.code != 1) {
         alert(res.msg);
-      }else{
+      } else {
         alert('注册成功！');
         location.reload();
       }
@@ -166,12 +198,12 @@
   /**
    * 发送验证码
    */
-  function sendVCode(){
+  function sendVCode() {
     var sendEl = $('#btnSend');
     var timeEl = $('.time');
     var phoneVal = $('#phone').val();
 
-    if(!/\d{11}/.test(phoneVal)){
+    if (!/\d{11}/.test(phoneVal)) {
       return alert('手机号格式有误，请重新输入!');
     }
 
@@ -179,10 +211,10 @@
     timeEl.show();
 
     var vc = new vcode({
-      onTick: function(t){
+      onTick: function (t) {
         timeEl.text(t);
       },
-      onEnd : function(){
+      onEnd: function () {
         timeEl.hide();
         sendEl.show();
       }
@@ -190,42 +222,44 @@
 
     vc.start();
 
-    $.post('/serverInterface/login/sendCode',{mobile: phoneVal, type: 1}, function(res){
-      if(res.code != 1){
+    $.post('/serverInterface/login/sendCode', {mobile: phoneVal, type: 1}, function (res) {
+      if (res.code != 1) {
         alert(res.msg);
       }
     })
   }
 
-  function vcode(options){
+  function vcode(options) {
     this.options = Object.assign({
-        timeLen: 60, //倒计时时长 单位：s
-        delay: 1000, //倒计时间隔 单位：ms
-        onTick: function(){},
-        onEnd: function(){}
-      }, options);
+      timeLen: 60, //倒计时时长 单位：s
+      delay: 1000, //倒计时间隔 单位：ms
+      onTick: function () {
+      },
+      onEnd: function () {
+      }
+    }, options);
   }
 
-  vcode.prototype.start = function(){
+  vcode.prototype.start = function () {
     var _this = this;
     var timeLen = this.options.timeLen;
     var onTick = this.options.onTick;
     var onEnd = this.options.onEnd;
     var delay = this.options.delay;
 
-      onTick(timeLen);
+    onTick(timeLen);
 
-      this.intervalId = window.setInterval(function(){
-        timeLen --;
+    this.intervalId = window.setInterval(function () {
+      timeLen--;
 
-        if(timeLen < 0){
-          onEnd();
+      if (timeLen < 0) {
+        onEnd();
 
-          window.clearInterval(_this.intervalId);
-        }else{
-          onTick(timeLen);
-        }
-      }, delay);
+        window.clearInterval(_this.intervalId);
+      } else {
+        onTick(timeLen);
+      }
+    }, delay);
   };
 
   function getQueryString(name) {
