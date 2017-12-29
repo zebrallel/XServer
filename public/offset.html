@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Offeet</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 10px;
+        }
+
+        .content {
+            height: 300px;
+        }
+
+        .a {
+            background-color: aqua;
+        }
+
+        .b {
+            background-color: #f60;
+        }
+
+        .c {
+            background-color: #abc;
+        }
+        .main{
+            height: 400px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content a">content</div>
+        <div class="content b">content</div>
+        <div class="content c">content</div>
+    </div>
+    <script>
+        window.onload = () => {
+            const body = document.body;
+            console.log(body.clientHeight);
+            console.log(body.offsetHeight);
+            console.log(body.scrollHeight);
+        }
+    </script>
+</body>
+
+</html>
