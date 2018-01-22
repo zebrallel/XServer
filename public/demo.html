@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <img id="img" src="./imgs/med1.png" alt="" onerror="onErrorHandler()">
+    <script>
+        function onErrorHandler(){
+            var dom = document.querySelector('#img');
+
+            console.log('error! now we are going to change the image src...')
+
+            dom.setAttribute('src', './imgs/med.png')
+        }
+    </script>
+</body>
+</html>
