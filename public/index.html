@@ -1,56 +1,21 @@
 <!doctype html>
 <html lang="zh-cmn-Hans">
+
 <head>
     <meta charset="UTF-8">
     <title>XServer</title>
     <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
-    <style>
-        p:first-child
-        {
-            background-color:yellow;
-        }
-
-        div.test:first-child{
-            font-size: 20px;
-        }
-    </style>
 </head>
+
 <body>
-<p style="text-align: center;">Hello World!</p>
-
-
-<p>这个段落是其父元素（body）的首个子元素。</p>
-
-<h1>欢迎访问我的主页</h1>
-<p>这个段落不是其父元素的首个子元素。</p>
-
-<div>
-    <p>这个段落是其父元素（div）的首个子元素。</p>
-    <p>这个段落不是其父元素的首个子元素。</p>
-</div>
-
-<div>
-    <div class="test">test</div>
-    <div class="test">test</div>
-    <div class="test">test</div>
-    <div class="test">test</div>
-</div>
-
-
-<button id="button">CLick me</button>
-<script src="./assets/jquery-3.2.1.js"></script>
-<script>
-    $(function () {
-        $('#button').click(function () {
-            $.post('/api/login', {
-                username: 123,
-                password: 456
-            }, function (res) {
-                console.log(res);
-            })
-        });
-    });
-
-</script>
+    <img src="./imgs/med.png" alt="">
+    <script>
+        if ('serviceWorker' in navigator) {
+            console.log('register!');
+            navigator.serviceWorker.register('./sw-demo.js')
+        }
+    </script>
+    </script>
 </body>
+
 </html>
