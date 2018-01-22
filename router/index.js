@@ -7,7 +7,7 @@
 var router = require('express').Router()
 var dirParser = require('../utils/dirParser')
 var publicfiles = []
-var pages = ['cache', 'wechat', 'cross', 'api']
+var pages = ['cache', 'wechat', 'cross', 'api', 'ssr']
 
 dirParser('public/{*,*/*}.html', function(files) {
     publicfiles = files.map(function(file) {
