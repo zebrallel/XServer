@@ -14,6 +14,16 @@
             console.log('register!');
             navigator.serviceWorker.register('./sw-demo.js')
         }
+
+        window.onbeforeunload = function (e) {
+            var e = window.event || e;
+            e.returnValue = ("ni确定离开当前页面吗？");
+
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:9999/cross?action=offline')
+            xhr.send()
+        } 
     </script>
     </script>
 </body>
