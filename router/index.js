@@ -29,21 +29,6 @@ router.get('/', function(req, res) {
     })
 })
 
-const Counter = () => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve('WFT?')
-        }, 3000)
-    })
-}
-
-router.get('/test', async function(req, res){
-    console.log('666')
-    const re = await Counter()
-    console.log(re)
-    res.send('Hello')
-})
-
 pages.forEach(page => {
     router.use(`/${page}`, require(`./${page}`))
 })
