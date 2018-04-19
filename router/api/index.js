@@ -4,32 +4,20 @@
 
 var router = require('express').Router();
 
-router.post('/csrf', function(req, res, next) {
+router.get('/csrf', function(req, res, next) {
     var options = {
         maxAge: 2592000000
     };
 
     res.cookie('username', 'xuxuejian', options);
 
-    res.json({
-        status : 0,
-        data : null
-    });
+    res.send('hello world')
 });
 
-//注册接口
-router.post('/account/register', function(req, res){
-    res.json({
-        status : 0,
-        data : null
-    })
-});
+router.get('/showCookie', function(req, res, next){
+    console.log(req.cookies)
 
-router.post('/account/favorite', function(req, res){
-    res.json({
-        status : 0,
-        message : ''
-    })
-});
+    next()
+})
 
 module.exports = router;

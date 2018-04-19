@@ -8,24 +8,8 @@
 </head>
 
 <body>
-    <img src="./imgs/med.png" alt="">
-    <script>
-        if ('serviceWorker' in navigator) {
-            console.log('register!');
-            navigator.serviceWorker.register('./sw-demo.js')
-        }
-
-        window.onbeforeunload = function (e) {
-            var e = window.event || e;
-            e.returnValue = ("ni确定离开当前页面吗？");
-
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:9999/cross?action=offline')
-            xhr.send()
-        } 
-    </script>
-    </script>
+    this is a dangerous page
+    <img src="http://127.0.0.1:9999/api/showCookie" />
 </body>
 
 </html>
