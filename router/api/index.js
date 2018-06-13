@@ -14,8 +14,8 @@ router.get('/csrf', function(req, res, next) {
     res.send('hello world')
 });
 
-router.get('/showCookie', function(req, res, next){
-    console.log(req.cookies)
+router.get('/show', function(req, res, next){
+    console.log(req.query);
 
     next()
 })
