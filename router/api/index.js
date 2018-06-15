@@ -15,9 +15,9 @@ router.get('/csrf', function(req, res, next) {
 });
 
 router.get('/show', function(req, res, next){
-    console.log(req.query);
+    console.log('111');
 
-    next()
+    res.end('success')
 })
 
 module.exports = router;
