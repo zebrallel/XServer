@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CodeMirror Test</title>
+    <link rel="stylesheet" href="../lib/codemirror.css">
+    <link rel="stylesheet" href="../addon/hint/show-hint.css">
+</head>
+
+<body>
+    <h1>Code Mirror Test</h1>
+    <div>
+        <form>
+            <textarea id="editor">
+hello world
+this hello2 $test$ haha 你好 ddd 哈哈 $啦啦$
+oh my god</textarea>
+        </form>
+    </div>
+    <br>
+    <button onclick="add()">click me to add </button>
+    <script src="../lib/codemirror.js"></script>
+    <script src="../addon/hint/show-hint.js"></script>
+    <script>
+        const result = [
+            'hello',
+            'hello2',
+            '$test$',
+            '你好',
+            '$啦啦$'
+        ]
+        function add() {
+            console.log(123);
+            result.push('hello4')
+        }
+        CodeMirror.defineMode('myMode', (config) => {
+            return {
+                startState: () => {
+                    const state = {
+                        name: 'callie'
+                    }
+
+                    return state
+                },
+                token: (stream, state) => {
+                    if(stream.eatSpace()){return null}
+
+                    stream.eatWhile(/[\$\w\u4e00-\u9fa5]/)
+
+                    const cur = stream.current()
+
+                    if(result.some((item) => {
+                        return item.name === cur
+                    })){
+                        return 'def'
+                    }
+
+                    stream.next()
+
+                    return null
+                }
+            }
+        })
+        CodeMirror.registerHelper("hint", "myMode", function (cm) {
+            var cur = cm.getCursor(), token = cm.getTokenAt(cur);
+            var start = token.start, end = cur.ch
+
+            if (result.length) return {
+                list: result,
+                from: CodeMirror.Pos(cur.line, start),
+                to: CodeMirror.Pos(cur.line, end)
+            };
+        });
+        CodeMirror.fromTextArea(document.getElementById("editor"), {
+            lineNumbers: true,
+            extraKeys: { "Alt-/": "autocomplete" },
+            mode: 'myMode'
+        });
+    </script>
+</body>
+
+</html>
