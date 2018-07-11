@@ -14,16 +14,14 @@
     <h1>Code Mirror Test</h1>
     <div>
         <form>
-            <textarea id="editor">
-hello world
-this hello2 $test$ haha 你好 ddd 哈哈 $啦啦$
-oh my god</textarea>
+            <textarea id="editor">hello world</textarea>
         </form>
     </div>
     <br>
     <button onclick="add()">click me to add </button>
     <script src="../lib/codemirror.js"></script>
     <script src="../addon/hint/show-hint.js"></script>
+    <script src="../addon/edit/matchbrackets.js"></script>
     <script>
         const result = [
             'hello',
@@ -46,15 +44,15 @@ oh my god</textarea>
                     return state
                 },
                 token: (stream, state) => {
-                    if(stream.eatSpace()){return null}
+                    if (stream.eatSpace()) { return null }
 
                     stream.eatWhile(/[\$\w\u4e00-\u9fa5]/)
 
                     const cur = stream.current()
 
-                    if(result.some((item) => {
+                    if (result.some((item) => {
                         return item.name === cur
-                    })){
+                    })) {
                         return 'def'
                     }
 
@@ -67,18 +65,48 @@ oh my god</textarea>
         CodeMirror.registerHelper("hint", "myMode", function (cm) {
             var cur = cm.getCursor(), token = cm.getTokenAt(cur);
             var start = token.start, end = cur.ch
+            var str = token.string
+
+            const list = result.filter((item) => {
+                return item.indexOf(str) > -1
+            })
 
             if (result.length) return {
-                list: result,
+                list: list,
                 from: CodeMirror.Pos(cur.line, start),
                 to: CodeMirror.Pos(cur.line, end)
             };
         });
-        CodeMirror.fromTextArea(document.getElementById("editor"), {
+
+        const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,
             extraKeys: { "Alt-/": "autocomplete" },
+            matchBrackets: true,
             mode: 'myMode'
         });
+
+        editor.addKeyMap({
+            name: 'autoInsertParentheses',
+            "'('": (cm) => {
+                const cur = cm.getCursor()
+                
+                cm.replaceRange('()', cur, cur, '+insert')
+                cm.doc.setCursor({line: cur.line, ch: cur.ch + 1})
+            },
+            "'{'": (cm) => {
+                const cur = cm.getCursor()
+                
+                cm.replaceRange('{}', cur, cur, '+insert')
+                cm.doc.setCursor({line: cur.line, ch: cur.ch + 1})
+            },
+            "'['": (cm) => {
+                const cur = cm.getCursor()
+                
+                cm.replaceRange('[]', cur, cur, '+insert')
+                cm.doc.setCursor({line: cur.line, ch: cur.ch + 1})
+            }
+        })
+
     </script>
 </body>
 
