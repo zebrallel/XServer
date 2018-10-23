@@ -4,6 +4,8 @@
 
 var router = require('express').Router()
 
+const apis = []
+
 router.get('/csrf', function(req, res, next) {
     var options = {
         maxAge: 2592000000
@@ -28,6 +30,19 @@ router.post('/me', function(req, res) {
     res.json({
         name: 'xxj',
         age: 20
+    })
+})
+
+router.post('/addapi', function(req, res){
+    const data = req.body
+
+    console.log(2222);
+    console.log(data);
+    console.log(11111);
+
+    res.json({
+        code: 0,
+        message: 'success'
     })
 })
 
