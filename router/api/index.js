@@ -3,7 +3,7 @@
  */
 
 var router = require('express').Router()
-
+const { generateHash } = require('../../utils/index')
 const apis = []
 
 router.get('/csrf', function(req, res, next) {
@@ -33,15 +33,25 @@ router.post('/me', function(req, res) {
     })
 })
 
-router.post('/addapi', function(req, res){
+router.post('/addapi', function(req, res) {
     const data = req.body
+    const hash = generateHash(Date.now().toString(), 5)
 
-    console.log(2222);
-    console.log(data);
-    console.log(11111);
+    apis.push({ ...data, id: hash })
 
     res.json({
-        code: 0,
+        code: 200,
+        data: {
+            id: hash
+        },
+        message: 'success'
+    })
+})
+
+router.get('/getapi', function(req, res) {
+    res.json({
+        code: 200,
+        data: apis,
         message: 'success'
     })
 })
