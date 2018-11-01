@@ -49,7 +49,7 @@ router.get('/she', function(req, res) {
     res.json(data)
 })
 
-router.post('/me', function(req, res) {
+router.get('/me', function(req, res) {
     const data = [
         { 销售员: '张三', 地区: '上海市' },
         { 销售员: '张三', 地区: '北京市' },
